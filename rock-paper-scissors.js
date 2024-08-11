@@ -55,7 +55,7 @@ function displayOutput(parent, msg) {
 }
 
 function clearOutput(outputTag){
-    
+    return '';
 }
 
 function getComputerInput() {
