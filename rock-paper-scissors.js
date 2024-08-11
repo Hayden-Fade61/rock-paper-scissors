@@ -1,3 +1,10 @@
+const buttons = document.querySelectorAll(".ui-button");
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        playRound(button.textContent.toLowerCase());
+    });
+});
+
 function playGame(){
     let numRounds = 5;
     let humanScore = 0;
@@ -26,23 +33,29 @@ function playGame(){
     }
 }
 
-function playRound() {
+function playRound(playerChoice) {
+    const outputContainer = document.querySelector("#results-container");
     let compChoice = getComputerInput();
-    let playerChoice = getPlayerInput();
     let outcome = decideWinner(compChoice, playerChoice);
-    let outcomes = [
+    const OUTCOMES = [
         "A draw! Looks like a good old fashioned Mexican standoff!",
         "You win! Yeehaw! Nice going there partner!",
         "You lose! Better luck next time partner..."
-    ]
-    console.log(`Player selected: ${playerChoice}`);
-    console.log(`Computer selected: ${compChoice}`);
-    console.log(outcomes[outcome]);
+    ];
+    displayOutput(outputContainer, `Player selected: ${playerChoice}`);
+    displayOutput(outputContainer, `Computer selected: ${compChoice}`);
+    displayOutput(outputContainer, OUTCOMES[outcome]);
     return outcome;
 }
 
-function getPlayerInput() {
-    return prompt("Choose your weapon! Rock, Paper, or Scissors: ").toLowerCase();
+function displayOutput(parent, msg) {
+    const outputTag = document.createElement("p");
+    outputTag.textContent = msg;
+    parent.appendChild(outputTag);
+}
+
+function clearOutput(outputTag){
+    
 }
 
 function getComputerInput() {
