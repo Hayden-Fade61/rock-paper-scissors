@@ -3,11 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+    <!--Using a deferred script in head is best practice-->
+    <!--Placing scripts at the bottom speeds up old browsers-->
+  <script src="rock-paper-scissors.js" defer></script> 
   <title>Rock Paper Scissors!!!</title>
 </head>
 <body>
-    <script src="rock-paper-scissors.js">
-      playGame();
-    </script>
+  <div class="game-container">
+    <div id="results-container"></div>
+    <div id="button-container">
+      <button class="ui-button">Rock</button>
+      <button class="ui-button">Paper</button>
+      <button class="ui-button">Scissors</button>
+    </div>
+  </div>
 </body>
 </html>
